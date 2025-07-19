@@ -91,7 +91,7 @@ const Dashboard = () => {
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Properties</h2>
           <div className="space-y-4">
             {properties.slice(0, 3).map((property) => (
-              <div key={property.id} className="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200">
+              <div key={property._id} className="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg transition-colors duration-200">
                 <img
                   src={property.image}
                   alt={property.name}
@@ -118,7 +118,7 @@ const Dashboard = () => {
                 const tenant = tenants.find(t => t.id === payment.tenantId);
                 const property = properties.find(p => p.id === tenant?.propertyId);
                 return (
-                  <div key={payment.id} className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                  <div key={payment._id} className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
                     <div>
                       <h3 className="font-medium text-gray-900">{tenant?.name}</h3>
                       <p className="text-sm text-gray-600">{property?.name} - Unit {tenant?.unit}</p>

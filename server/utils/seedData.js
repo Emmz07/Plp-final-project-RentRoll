@@ -74,7 +74,7 @@ const seedData = async () => {
       {
         name: 'John Doe',
         email: 'john.doe@email.com',
-        phone: '+1-555-0123',
+        phone: '+15550123',
         propertyId: createdProperties[0]._id,
         unit: 'A1',
         rentAmount: 1200,
@@ -91,7 +91,7 @@ const seedData = async () => {
       {
         name: 'Jane Smith',
         email: 'jane.smith@email.com',
-        phone: '+1-555-0456',
+        phone: '+15550456',
         propertyId: createdProperties[0]._id,
         unit: 'B2',
         rentAmount: 1150,
@@ -103,7 +103,7 @@ const seedData = async () => {
       {
         name: 'Bob Johnson',
         email: 'bob.johnson@email.com',
-        phone: '+1-555-0789',
+        phone: '+15550789',
         propertyId: createdProperties[1]._id,
         unit: 'Main',
         rentAmount: 1800,
@@ -115,7 +115,7 @@ const seedData = async () => {
       {
         name: 'Tech Startup LLC',
         email: 'contact@techstartup.com',
-        phone: '+1-555-0321',
+        phone: '+15550321',
         propertyId: createdProperties[2]._id,
         unit: 'Suite 101',
         rentAmount: 2500,
@@ -179,8 +179,7 @@ const seedData = async () => {
 };
 
 // Run seed if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  seedData();
-}
+seedData();
+
 
 export default seedData;
