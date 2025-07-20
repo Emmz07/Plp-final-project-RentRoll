@@ -36,7 +36,7 @@ app.use(limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'https://plp-final-project-rent-roll.vercel.app/',
   credentials: true
 }));
 

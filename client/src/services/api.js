@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 // Helper function to get auth headers
 const getAuthHeaders = () => {
@@ -21,7 +21,7 @@ const handleResponse = async (response) => {
 // Auth API
 export const authAPI = {
   login: async (credentials) => {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials)
@@ -30,7 +30,7 @@ export const authAPI = {
   },
 
   register: async (userData) => {
-    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
@@ -39,7 +39,7 @@ export const authAPI = {
   },
 
   getProfile: async () => {
-    const response = await fetch(`${API_BASE_URL}/auth/me`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/auth/me`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
@@ -50,21 +50,21 @@ export const authAPI = {
 export const propertiesAPI = {
   getAll: async (params = {}) => {
     const queryString = new URLSearchParams(params).toString();
-    const response = await fetch(`${API_BASE_URL}/properties?${queryString}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/properties?${queryString}`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   getById: async (id) => {
-    const response = await fetch(`${API_BASE_URL}/properties/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/properties/${id}`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   create: async (propertyData) => {
-    const response = await fetch(`${API_BASE_URL}/properties`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/properties`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify(propertyData)
@@ -73,7 +73,7 @@ export const propertiesAPI = {
   },
 
   update: async (id, propertyData) => {
-    const response = await fetch(`${API_BASE_URL}/properties/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/properties/${id}`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify(propertyData)
@@ -82,7 +82,7 @@ export const propertiesAPI = {
   },
 
   delete: async (id) => {
-    const response = await fetch(`${API_BASE_URL}/properties/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/properties/${id}`, {
       method: 'DELETE',
       headers: getAuthHeaders()
     });
@@ -94,21 +94,21 @@ export const propertiesAPI = {
 export const tenantsAPI = {
   getAll: async (params = {}) => {
     const queryString = new URLSearchParams(params).toString();
-    const response = await fetch(`${API_BASE_URL}/tenants?${queryString}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/tenants?${queryString}`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   getById: async (id) => {
-    const response = await fetch(`${API_BASE_URL}/tenants/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/tenants/${id}`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   create: async (tenantData) => {
-    const response = await fetch(`${API_BASE_URL}/tenants`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/tenants`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify(tenantData)
@@ -117,7 +117,7 @@ export const tenantsAPI = {
   },
 
   update: async (id, tenantData) => {
-    const response = await fetch(`${API_BASE_URL}/tenants/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/tenants/${id}`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify(tenantData)
@@ -126,7 +126,7 @@ export const tenantsAPI = {
   },
 
   delete: async (id) => {
-    const response = await fetch(`${API_BASE_URL}/tenants/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/tenants/${id}`, {
       method: 'DELETE',
       headers: getAuthHeaders()
     });
@@ -138,21 +138,21 @@ export const tenantsAPI = {
 export const paymentsAPI = {
   getAll: async (params = {}) => {
     const queryString = new URLSearchParams(params).toString();
-    const response = await fetch(`${API_BASE_URL}/payments?${queryString}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/payments?${queryString}`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   getById: async (id) => {
-    const response = await fetch(`${API_BASE_URL}/payments/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/payments/${id}`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   create: async (paymentData) => {
-    const response = await fetch(`${API_BASE_URL}/payments`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/payments`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify(paymentData)
@@ -161,7 +161,7 @@ export const paymentsAPI = {
   },
 
   update: async (id, paymentData) => {
-    const response = await fetch(`${API_BASE_URL}/payments/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/payments/${id}`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify(paymentData)
@@ -170,7 +170,7 @@ export const paymentsAPI = {
   },
 
   delete: async (id) => {
-    const response = await fetch(`${API_BASE_URL}/payments/${id}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/payments/${id}`, {
       method: 'DELETE',
       headers: getAuthHeaders()
     });
@@ -178,7 +178,7 @@ export const paymentsAPI = {
   },
 
   createBulk: async (data) => {
-    const response = await fetch(`${API_BASE_URL}/payments/bulk`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/payments/bulk`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify(data)
@@ -190,14 +190,14 @@ export const paymentsAPI = {
 // Dashboard API
 export const dashboardAPI = {
   getStats: async () => {
-    const response = await fetch(`${API_BASE_URL}/dashboard/stats`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/dashboard/stats`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   getRevenue: async (year) => {
-    const response = await fetch(`${API_BASE_URL}/dashboard/revenue?year=${year}`, {
+    const response = await fetch(`${REACT_APP_API_BASE_URL}/dashboard/revenue?year=${year}`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
