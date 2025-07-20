@@ -2,6 +2,8 @@
 
 RentRoll is a full-stack property management application designed to help landlords and property managers efficiently manage properties, tenants, and payments. The project is divided into two main parts: a React-based frontend and a Node.js/Express backend with MongoDB.
 
+### Application Link : https://plp-final-project-rent-roll.vercel.app/
+
 ---
 
 ## Table of Contents
@@ -94,21 +96,12 @@ cd ../client
 npm run dev
 ```
 
-The frontend will run on [http://localhost:5173](http://localhost:5173) and the backend on [http://localhost:5000](http://localhost:5000) by default.
+The frontend will run on [http://localhost:3000](http://localhost:3000) and the backend on [http://localhost:5000](http://localhost:5000) by default.
 
 ---
 
 ## Environment Variables
-Create a `.env` file in the `server/` directory with the following:
-```
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=5000
-NODE_ENV=development
-FRONTEND_URL=http://localhost:5173
-```
-
----
+Create a `.env` file in the `server/` directory 
 
 ## Scripts
 ### Backend
