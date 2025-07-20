@@ -35,10 +35,22 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://plp-final-project-rent-roll.vercel.app'
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://plp-final-project-rent-roll.vercel.app/',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS blocked: Origin ${origin} not allowed`));
+    }
+  },
   credentials: true
 }));
+
 
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
